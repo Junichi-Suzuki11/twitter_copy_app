@@ -1,0 +1,6 @@
+<h1>Compose new Tweet</h1>
+<%= form_for (@tweet) do |f| %>
+	<%= f.text_area :body %>
+	<%= f.submit 'Tweet' %>
+<% end %>
+<%= link_to '戻る', tweets_path %>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+                <i class="glyphicon glyphicon-home"></i>
+                <li class="nav-list-item">Home</li>
+                <i class="glyphicon glyphicon-flash"></i>
+                <li class="nav-list-item">Moments</li>
+                <i class="glyphicon glyphicon-bell"></i>
+                <li class="nav-list-item">Notifications</li>
+                <i class="glyphicon glyphicon-envelope"></i>
+                <li class="nav-list-item">Messages</li>
+          </div>
+          <div class="col-xs-2">
+            <i class="fa fa-twitter"></i>
+          </div>
+          <div class="col-xs-4">
+            <% if user_signed_in? %>
+              <%= link_to 'サインアウト', destroy_user_session_path, method: :delete %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <%= yield %>
+
+  </body>
+</html>

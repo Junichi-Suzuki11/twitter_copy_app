@@ -1,0 +1,43 @@
+<div class="main-content">
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="user-profile-area">
+				<%= current_user.name %>
+			</div>
+
+			<div class="weather-area">
+				Weather
+			</div>
+		</div>
+
+
+		<div class="middle-area col-lg-6">
+			<div class="tweet-post">
+				<%= form_for(@tweet) do |f| %>
+					<%= f.text_field :body %>
+					<%= f.submit 'Tweet' %>
+				<% end %>
+			</div>
+
+			<table class ="table table-hover table-inverse">
+				<tbody>
+					<% @tweets.each do |tweet| %>
+					<tr>
+						<td></td>
+						<td><%= current_user.name %><br>
+							<%= tweet.body %>
+							<%= link_to 'ツイートを削除', tweet_path(tweet), method: :delete %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-xs-3">
+		</div>
+	</div>
+
+</div>
+</div>
